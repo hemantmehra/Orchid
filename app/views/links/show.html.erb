@@ -4,6 +4,16 @@
     <small><a href="<%= @link.url %>"><%= @link.url %></a></small><br>
     <small>Submitted by <%= @link.user.email %></small>
   </h3>
+  <div class="btn-group">
+    <%= link_to upvote_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
+      <span class="glyphicon glyphicon-chevron-up">Upvote</span>
+      <%= @link.get_upvotes.size %>
+    <% end %>
+    <%= link_to downvote_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
+      <span class="glyphicon glyphicon-chevron-down">Downvote</span>
+      <%= @link.get_downvotes.size %>
+    <% end %>
+  </div>
 </div>
 
 <% if @link.user == current_user %>
