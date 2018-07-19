@@ -22,14 +22,14 @@
   <%= link_to 'Back', links_path %>
 </div>
 
-<%= simple_form_for [@link, Comment.new] do |f| %>
+<%= simple_form_for [@link, Comment.new], remote: true do |f| %>
   <div class="field">
     <%= f.text_field :body, class: 'form-control' %>
   </div>
   <br>
   <%= f.submit "Add Comment", class: "btn btn-default" %>
 <% end %>
-<h3>
+<h3 id="comment-count">
   <%= @link.comments.count %> Comments
 </h3>
 <div id="comments">
