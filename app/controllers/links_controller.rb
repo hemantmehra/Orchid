@@ -64,13 +64,21 @@ class LinksController < ApplicationController
   def upvote
     @link = Link.find(params[:id])
     @link.upvote_by current_user
-    redirect_back(fallback_location: root_path)
+
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: root_path) }
+      format.json {}
+    end
+
   end
 
   def downvote
     @link = Link.find(params[:id])
     @link.downvote_by current_user
-    redirect_back(fallback_location: root_path)
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: root_path) }
+      format.json {}
+    end
   end
 
   private
