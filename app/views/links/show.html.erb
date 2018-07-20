@@ -1,7 +1,13 @@
 <div class="page-header">
   <h3>
     <%= @link.title %><br>
-    <small><a href="<%= @link.url %>"><%= @link.url %></a></small><br>
+    <small>
+      <a href="<%= @link.url %>">
+        <%= @link.url %>
+        <span class="glyphicon glyphicon-link"></span>
+      </a>
+    </small>
+    <br>
     <small>Submitted by <%= @link.user.name %></small>
   </h3>
   <div class="btn-group">
