@@ -9,6 +9,14 @@
     </small>
     <br>
     <small>Submitted by <%= @link.user.name %></small>
+    <br>
+    <% if @link.tags != nil && @link.tags != "" %>
+      <small>Tags:
+        <% @link.tags.split.each do |tag| %>
+          <span class="badge badge-secondary"><%= tag %></span>
+        <% end %>
+      </small>
+    <% end %>
   </h3>
   <div class="btn-group">
     <%= link_to upvote_link_path(@link), remote: true, method: :put, class: "btn btn-default btn-sm" do %>
