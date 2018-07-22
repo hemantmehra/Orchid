@@ -2,7 +2,7 @@
     <h4>
       <%= link_to link.title, link %><br>
       <small>
-        <a href="<%= link.url %>">
+        <a href="<%= link.url %>" class="text-success">
           <%= link.url %>
           <span class="glyphicon glyphicon-link"></span>
         </a>
@@ -18,8 +18,8 @@
         <span class="glyphicon glyphicon-thumbs-down"></span>
         <%= link.get_downvotes.size %>
       <% end %>
-      <a class="btn btn-default btn-sm">
+      <%= link_to link_path(link), class: "btn btn-default btn-sm" do %>
         <%= link.comments.count %> Comments
-      </a>
+      <% end %>
     </div>
 <% end %>
