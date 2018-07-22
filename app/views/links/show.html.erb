@@ -8,7 +8,9 @@
       </a>
     </small>
     <br>
-    <small>Submitted by <%= @link.user.name %></small>
+    <small>
+      Submitted by <%= link_to @link.user.name, @link.user %>
+    </small>
     <br>
     <% if @link.tags != nil && @link.tags != "" %>
       <small>Tags:

@@ -7,7 +7,7 @@
           <span class="glyphicon glyphicon-link"></span>
         </a>
       </small><br>
-      <small class="author">Submitted by <%= link.user.name %> <%= time_ago_in_words(link.created_at) %> ago</small>
+      <small class="author">Submitted by <%= link_to link.user.name, link.user %> <%= time_ago_in_words(link.created_at) %> ago</small>
     </h4>
     <div class="btn-group">
       <%= link_to upvote_link_path(link), remote: true, method: :put, class: "btn btn-default btn-sm" do %>
