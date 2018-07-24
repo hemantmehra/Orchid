@@ -46,7 +46,7 @@
   <%= f.submit "Add Comment", class: "btn btn-default" %>
 <% end %>
 <h3 id="comment-count">
-  <%= @link.comments.count %> Comments
+  <%= pluralize @link.comments.count, "comment" %>
 </h3>
 <div id="comments">
   <%= render :partial => @link.comments.order('created_at desc') %>

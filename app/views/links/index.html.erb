@@ -19,7 +19,7 @@
         <%= link.get_downvotes.size %>
       <% end %>
       <%= link_to link_path(link), class: "btn btn-default btn-sm" do %>
-        <%= link.comments.count %> Comments
+        <%= pluralize link.comments.count, "comment" %>
       <% end %>
     </div>
 <% end %>
