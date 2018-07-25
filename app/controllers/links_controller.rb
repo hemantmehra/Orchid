@@ -1,10 +1,12 @@
 class LinksController < ApplicationController
+  include LinksHelper
   before_action :set_link, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   # GET /links
   # GET /links.json
   def index
-    @links = Link.all
+    #@links = Link.all
+    @links = fetch_links
   end
 
   # GET /links/1

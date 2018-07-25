@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+require ::File.expand_path('../config/environment', __dir__)
+
+redis = Redis.new
+
+puts 'Creating ordered set for link id\'s'
+
+Link.all.each do |link|
+  redis.zadd "link", -link.created_at.to_i, link.id
+end
+
+puts 'Done!'
