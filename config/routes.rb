@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     resources :comments
   end
   root to:"links#index"
+  get "load_links/:page_no", to: "links#load", as: "load_links"
 
 end

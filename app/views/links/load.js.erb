@@ -1,0 +1,8 @@
+$('#link-feed').append('<%= j render :partial => @next_links %>');
+<% if @next_links.empty? %>
+  $('#loading-text').text("End of feed");
+  $('#load-links-container').html("")
+<% else %>
+  $('#loading-text').text("Loading...")
+  $('#load-links-container').html("<%= j link_to '', load_links_path(0), remote: true, id: 'load-links' %>")
+<% end %>
