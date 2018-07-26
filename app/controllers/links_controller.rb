@@ -69,7 +69,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path) }
-      format.json {}
+      format.js
     end
 
   end
@@ -79,7 +79,7 @@ class LinksController < ApplicationController
     @link.downvote_by current_user
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path) }
-      format.json {}
+      format.js
     end
   end
 
