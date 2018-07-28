@@ -1,2 +1,13 @@
 $('#upvote_<%= @link.id %>').text('<%= @link.get_upvotes.size %>');
 $('#downvote_<%= @link.id %>').text('<%= @link.get_downvotes.size %>');
+<% if current_user.voted_up_on? @link %>
+  $('#thumbs_up_<%= @link.id %>').css('color', 'blue');
+<% else %>
+  $('#thumbs_up_<%= @link.id %>').css('color', 'black');
+<% end %>
+
+<% if current_user.voted_down_on? @link %>
+  $('#thumbs_down_<%= @link.id %>').css('color', 'red');
+<% else %>
+  $('#thumbs_down_<%= @link.id %>').css('color', 'black');
+<% end %>
