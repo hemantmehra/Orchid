@@ -42,13 +42,16 @@
   <%= link_to 'Back', links_path %>
 </div>
 
-<%= simple_form_for [@link, Comment.new], remote: true do |f| %>
-  <div class="field">
-    <%= f.text_field :body, class: 'form-control' %>
-  </div>
-  <br>
-  <%= f.submit "Add Comment", class: "btn btn-default" %>
+<% if user_signed_in? %>
+  <%= simple_form_for [@link, Comment.new], remote: true do |f| %>
+    <div class="field">
+      <%= f.text_field :body, class: 'form-control' %>
+    </div>
+    <br>
+    <%= f.submit "Add Comment", class: "btn btn-default" %>
+  <% end %>
 <% end %>
+
 <h3 id="comment-count">
   <%= pluralize @link.comments.count, "comment" %>
 </h3>
