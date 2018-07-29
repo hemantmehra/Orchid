@@ -65,7 +65,13 @@ class LinksController < ApplicationController
 
   def upvote
     @link = Link.find(params[:id])
-    @link.upvote_by current_user
+    if !current_user.nil?
+      if current_user.voted_up_on? @link
+        @link.unliked_by current_user
+      else
+        @link.upvote_by current_user
+      end
+    end
 
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path) }
@@ -76,7 +82,14 @@ class LinksController < ApplicationController
 
   def downvote
     @link = Link.find(params[:id])
-    @link.downvote_by current_user
+    if !current_user.nil?
+      if current_user.voted_down_on? @link
+        @link.undisliked_by current_user
+      else
+        @link.downvote_by current_user
+      end
+    end
+
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path) }
       format.js
