@@ -13,13 +13,13 @@
     <%= link_to upvote_link_path(link), remote: true, method: :put, class: "btn btn-default btn-sm" do %>
       <span class="glyphicon glyphicon-thumbs-up"
             id="thumbs_up_<%= link.id %>"
-            style="<%= 'color: blue' if current_user.voted_up_on? link  %>"></span>
+            style="<%= 'color: blue' if user_signed_in? and current_user.voted_up_on? link  %>"></span>
       <span id="upvote_<%= link.id %>"><%= link.get_upvotes.size %></span>
     <% end %>
     <%= link_to downvote_link_path(link), remote: true, method: :put, class: "btn btn-default btn-sm" do %>
       <span class="glyphicon glyphicon-thumbs-down"
             id="thumbs_down_<%= link.id %>"
-            style="<%= 'color: red' if current_user.voted_down_on? link  %>"></span>
+            style="<%= 'color: red' if user_signed_in? and current_user.voted_down_on? link  %>"></span>
       <span id="downvote_<%= link.id %>"><%= link.get_downvotes.size %></span>
     <% end %>
     <%= link_to link_path(link), class: "btn btn-default btn-sm" do %>
