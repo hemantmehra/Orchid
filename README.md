@@ -1,24 +1,20 @@
-# README
+# Orchid
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A hobby project to build a web app that allows registered users to:
+* login
+* post a link
+* upvote/downvote any link
+* comment on any link
 
-Things you may want to cover:
+## Requirements:
 
-* Ruby version
+* Ruby version - 2.5.1
+* Bundle version - 1.16.2
+* Rails version - 5.2.0
+* Redis-server - 3.0.7 (port: 6375)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Initial Setup
+1. bundle install
+2. rails db:migrate
+3. rails server
+4. redis-server
