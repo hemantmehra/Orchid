@@ -1,10 +1,6 @@
 # Orchid
 
-A hobby project to build a web app that allows registered users to:
-* login
-* post a link
-* upvote/downvote any link
-* comment on any link
+Orchid is a web content aggregation service. Registered users can submit links which are then upvoted or downvoted by other users.
 
 ## Requirements:
 
